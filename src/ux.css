@@ -1,0 +1,195 @@
+/* ===================== UMUMIY UX YAXSHILANISHLARI ===================== */
+
+/* Tema (light/dark) almashganda barcha ranglar yumshoq o'tsin */
+* {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* ---- Route (sahifa) o'tish animatsiyasi ---- */
+.route_fade_in {
+  animation: route_fade_in_kf 0.28s ease-out;
+}
+
+@keyframes route_fade_in_kf {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Top loading bar (route navigatsiyasi paytida) ---- */
+.top_loading_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.top_loading_bar.active {
+  opacity: 1;
+}
+
+.top_loading_bar_fill {
+  height: 100%;
+  width: 30%;
+  background: var(--brand, #6200ff);
+  border-radius: 0 4px 4px 0;
+  animation: top_loading_bar_slide 1s ease-in-out infinite;
+}
+
+@keyframes top_loading_bar_slide {
+  0% { margin-left: -30%; width: 30%; }
+  50% { width: 55%; }
+  100% { margin-left: 100%; width: 30%; }
+}
+
+/* ---- Cart badge "pop" animatsiyasi ---- */
+.cart_badge {
+  animation: cart_badge_pop 0.3s ease;
+}
+
+@keyframes cart_badge_pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* ---- Mahsulot kartalari hover effekti ---- */
+.pro_card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pro_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px var(--shadow-color, rgba(0, 0, 0, 0.12));
+}
+
+/* ---- Skeleton shimmer effekti ---- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--border-color-soft, #eef1f4);
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--shadow-color, rgba(255, 255, 255, 0.35)),
+    transparent
+  );
+  animation: skeleton_shimmer 1.4s infinite;
+}
+
+@keyframes skeleton_shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* ---- Error boundary ekrani ---- */
+.error_boundary_screen {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.error_boundary_box {
+  text-align: center;
+  max-width: 420px;
+  background: var(--bg-surface, #fff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px var(--shadow-color, rgba(0, 0, 0, 0.08));
+}
+
+.error_boundary_icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.error_boundary_box h2 {
+  margin: 0 0 8px 0;
+  color: var(--text-primary, #0f172a);
+}
+
+.error_boundary_box p {
+  color: var(--text-secondary, #475569);
+  margin: 0 0 20px 0;
+}
+
+.error_boundary_actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ---- Xatolik holatidagi qayta urinish bloki ---- */
+.status_error_box {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---- Offline banner ---- */
+.offline_banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  background: var(--danger, #ef4444);
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: offline_banner_in 0.25s ease-out;
+}
+
+@keyframes offline_banner_in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* ---- Inline form xato matni ---- */
+.field_error {
+  color: var(--danger, #ef4444);
+  font-size: 12.5px;
+  margin: -6px 0 8px 0;
+}
+
+.form_input.invalid {
+  border-color: var(--danger, #ef4444);
+}
+
+/* Harakatni kamaytirishni afzal ko'radigan foydalanuvchilar uchun */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  .route_fade_in,
+  .cart_badge,
+  .pro_card,
+  .skeleton::after,
+  .top_loading_bar_fill {
+    animation: none !important;
+    transition: none !important;
+  }
+}

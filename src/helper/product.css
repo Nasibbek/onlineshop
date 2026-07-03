@@ -1,0 +1,347 @@
+/* Har bitta mahsulot kardi */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-6px); /* Tepaga biroz ko'tarilish effekti */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #e2e8f0;
+}
+
+.card_img_box {
+  width: 100%;
+  height: 220px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.card_img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card_img {
+  transform: scale(1.05); /* Rasm biroz kattalashadi */
+}
+
+.card_info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.card_title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.4;
+  height: 44px; /* Ikki qatordan oshsa chiroyli turishi uchun */
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card_price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: auto 0 4px 0;
+}
+
+/* "Batafsil" tugmasi */
+.btn_card {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #6200ff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn_card:hover {
+  background: #4f00cc;
+}
+
+/* Sahifalash (Pagination) tugmalari */
+.pagination_container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 50px 0 100px 0;
+}
+
+.page_btn {
+  padding: 10px 16px;
+  background-color: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page_btn:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.page_btn.active {
+  background-color: #6200ff;
+  color: #ffffff;
+  border-color: #6200ff;
+}
+
+.status_text {
+  text-align: center;
+  font-size: 18px;
+  color: #64748b;
+  margin-top: 80px;
+}
+
+.status_text.error {
+  color: #e74c3c;
+}
+
+.btn_card{
+  width: 90%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: white;
+  background-color: #6200ff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.card_img_box {
+  width: 100%;
+  height: 220px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f8fafc;
+  position: relative;
+}
+
+.favorite_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.favorite_btn:hover {
+  transform: scale(1.1);
+  border-color: #fecaca;
+}
+
+.favorite_btn.active {
+  background: #fff1f2;
+  border-color: #fda4af;
+}
+/* ===== SKELETON LOADING ===== */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton_card {
+  pointer-events: none;
+}
+
+.skeleton_img {
+  width: 100%;
+  height: 220px;
+  border-radius: 0;
+}
+
+.skeleton_title {
+  height: 18px;
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+.skeleton_price {
+  height: 24px;
+  width: 40%;
+  margin-bottom: 12px;
+}
+
+.skeleton_btn {
+  height: 36px;
+  width: 90%;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.cards_grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ===== FILTER PANEL ===== */
+.filter_panel {
+  display: flex;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.search_input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search_input:focus {
+  border-color: #6200ff;
+  box-shadow: 0 0 0 3px rgba(98, 0, 255, 0.1);
+}
+
+.sort_select {
+  padding: 10px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.sort_select:focus {
+  border-color: #6200ff;
+}
+
+.price_range_filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.price_input {
+  width: 80px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.price_input:focus {
+  border-color: #6200ff;
+}
+
+.price_clear_btn {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.price_clear_btn:hover {
+  background: #e2e8f0;
+}
+
+/* ===== CATEGORY BUTTONS ===== */
+.category_filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 16px auto 0 auto;
+  padding: 0 20px;
+}
+
+.cat_btn {
+  padding: 6px 14px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+
+.cat_btn:hover {
+  background: #e0e7ff;
+  border-color: #6200ff;
+  color: #6200ff;
+}
+
+.cat_btn.active {
+  background: #6200ff;
+  border-color: #6200ff;
+  color: #fff;
+  font-weight: 600;
+}

@@ -1,0 +1,411 @@
+/* ================= REGISTER & LOGIN CSS (OCH REJIM) ================= */
+
+/* Sahifani ekran markaziga tekislash uchun asosiy konteyner */
+.auth_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  padding: 40px 20px;
+  background-color: #f8fafc; /* Butun sahifa foni uchun yumshoq sutrang */
+}
+
+/* Forma kartasi - toza oq fonda va juda mayin soyali */
+.auth_form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0; /* Ko'zga tashlanmaydigan och chegara */
+  box-shadow: 0 10px 25px rgba(148, 163, 184, 0.08); /* Mayin va vazmin soya */
+  width: 100%;
+  max-width: 400px; /* Telefon va kompyuterga birdek mos keladigan kenglik */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Formaning asosiy sarlavhasi (Login / Register) */
+.auth_form h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a; /* To'q ko'mir rang (mutloq qora emas, ko'zga yumshoq botadi) */
+  text-align: center;
+}
+
+/* Sarlavha ostidagi kichik tushuntirish matni */
+.auth_form p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #64748b; /* Sokin kulrang */
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Inputlar tepasidagi kichik yozuvlar (Label) */
+.form_label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: -6px; /* Inputga yaqinroq turishi uchun */
+}
+
+/* Ma'lumot kiritish maydonlari (Input) */
+.form_input {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1; /* Och kulrang chegara */
+  font-size: 15px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f8fafc; /* Formadan biroz ajralib turishi uchun och fon */
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+/* Input ichiga yozish boshlangandagi effekt (Focus) */
+.form_input:focus {
+  border-color: #2563eb; /* Yoqimli mat ko'k rang */
+  background-color: #ffffff; /* Fokus bo'lganda ichi toza oq bo'ladi */
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); /* Atrofidan mayin havorang nur taralishi */
+}
+
+/* Input ichidagi eslatma matni (Placeholder) rangi */
+.form_input::placeholder {
+  color: #94a3b8;
+}
+
+/* Formaning asosiy tugmasi (Kirish / Ro'yxatdan o'tish) */
+.auth_btn {
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #2563eb !important; /* Standart va professional ko'k rang */
+  color: #ffffff !important;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Sichqoncha tugma ustiga kelgandagi holat (Hover) */
+.auth_btn:hover {
+  background: #1d4ed8 !important; /* Biroz quyuqroq ko'k */
+  transform: translateY(-1px); /* Engil tepaga ko'tarilish effekti */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* Tugma bosib turilgan holati (Active) */
+.auth_btn:active {
+  transform: translateY(0);
+}
+
+/* Pastdagi sahifalar aro o'tish matni (Masalan: Hisobingiz yo'qmi?) */
+.auth_switch {
+  margin-top: 15px !important;
+  font-size: 14px !important;
+  color: #64748b !important;
+  text-align: center;
+}
+
+/* Matn ichidagi ko'k rangli havola (NavLink) */
+.auth_switch a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  margin-left: 5px;
+}
+
+.auth_switch a:hover {
+  color: #1d4ed8;
+  text-decoration: underline; /* Ustiga kelganda tagiga chiziladi */
+}
+
+/* Profil sahifasi uslublari */
+.profile_container1 {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.profile_card_main {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(148, 163, 184, 0.05);
+}
+
+.profile_header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile_avatar {
+  font-size: 50px;
+  background: #f1f5f9;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+}
+
+.profile_header h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.profile_email {
+  color: #64748b;
+  margin: 5px 0 0 0;
+}
+
+.profile_info_body {
+  background: #f8fafc;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.info_row {
+  display: flex;
+  justify-content: space-between;
+  color: #334155;
+  font-size: 15px;
+}
+
+/* Profil ichidagi bo'limlar */
+.profile_sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 35px;
+}
+
+.section_tab {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.section_tab:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.section_tab h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.empty_sub_text {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Tizimdan chiqish */
+.profile_logout_btn {
+  width: 100%;
+  padding: 14px;
+  background: #fff5f5;
+  color: #e11d48;
+  border: 1px solid #fee2e2;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile_logout_btn:hover {
+  background: #e11d48;
+  color: white;
+}
+
+/* Navbar ichidagi profil tugmasi */
+.profile_btn {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+.profile_btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+/* --- Qorong'i / Kunduzgi rejim almashtirgich --- */
+.theme_switch_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.theme_switch_label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme_switch_icon {
+  font-size: 22px;
+}
+
+.theme_switch_title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.theme_switch_sub {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.theme_toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s ease;
+}
+
+.theme_toggle.active {
+  background: #6200ff;
+}
+
+.theme_toggle_knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.theme_toggle.active .theme_toggle_knob {
+  transform: translateX(24px);
+}
+
+/* ===================== Sozlamalar bo'limi ===================== */
+.settings_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.settings_form {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings_form_title {
+  margin: 0 0 18px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings_form .form_label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin: 14px 0 6px 0;
+  display: block;
+}
+
+.settings_form .form_label:first-of-type {
+  margin-top: 0;
+}
+
+.settings_form .form_input {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings_form .form_input:focus {
+  outline: none;
+  border-color: #6200ff;
+  box-shadow: 0 0 0 3px rgba(98, 0, 255, 0.1);
+}
+
+.settings_save_btn {
+  margin-top: 20px;
+  align-self: flex-start;
+  background: #6200ff;
+  color: #ffffff;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.settings_save_btn:hover {
+  background: #5000d6;
+}
+
+.settings_save_btn:active {
+  transform: scale(0.97);
+}
+
+/* Ko'rinish (tema) bo'limi — boshqalardan farqli, forma emas */
+.settings_wrapper .settings_form:has(.theme_switch_row) {
+  padding: 18px 24px;
+}
+
+/* Qorong'i / Kunduzgi rejim qatori bezagi */
+.theme_switch_row {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.theme_switch_icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 10px;
+  flex-shrink: 0;
+}

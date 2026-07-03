@@ -1,0 +1,573 @@
+/* ===================== GLOBAL CSS O'ZGARUVCHILARI ===================== */
+:root {
+  --bg-page: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f8fafc;
+  --bg-input: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+
+  --border-color: #e2e8f0;
+  --border-color-soft: #f1f5f9;
+
+  --brand: #6200ff;
+  --brand-hover: #5000d6;
+  --brand-soft: #eef2ff;
+
+  --danger: #ef4444;
+  --danger-soft: #fef2f2;
+  --success: #16a34a;
+  --success-soft: #ecfdf5;
+
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Qorong'i rejim */
+:root[data-theme="dark"] {
+  --bg-page: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-surface-alt: #233044;
+  --bg-input: #1a2436;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+
+  --border-color: #334155;
+  --border-color-soft: #2a3a52;
+
+  --brand: #8b5cf6;
+  --brand-hover: #7c3aed;
+  --brand-soft: #2a2347;
+
+  --danger: #f87171;
+  --danger-soft: #3a1f24;
+  --success: #4ade80;
+  --success-soft: #16321f;
+
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+html { background-color: var(--bg-page); }
+
+body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ===================== DARK MODE — BARCHA QOIDALAR ===================== */
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] #root {
+  background-color: var(--bg-page);
+}
+
+/* --- Umumiy matn --- */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] label {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] a {
+  color: var(--brand);
+}
+
+/* --- Navbar --- */
+:root[data-theme="dark"] .nav {
+  background: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .menu_link {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .menu_link:hover {
+  background-color: var(--brand-soft) !important;
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .menu_link.active {
+  background-color: var(--brand-soft) !important;
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .login_btn {
+  color: var(--brand) !important;
+  border-color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .login_btn:hover {
+  background: var(--brand-soft) !important;
+}
+
+/* --- Footer --- */
+:root[data-theme="dark"] .footer_section {
+  background-color: var(--bg-surface) !important;
+  border-top: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .footer_block h4,
+:root[data-theme="dark"] .footer_links a,
+:root[data-theme="dark"] .footer_info li,
+:root[data-theme="dark"] .footer_desc,
+:root[data-theme="dark"] .social_link,
+:root[data-theme="dark"] .footer_bottom p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .footer_links a:hover,
+:root[data-theme="dark"] .social_link:hover {
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .footer_bottom {
+  border-top-color: var(--border-color) !important;
+}
+
+/* --- Home / Servise / Help sahifalari --- */
+:root[data-theme="dark"] .hero_section {
+  background: linear-gradient(-45deg, #1e1730, #1a2140, #2a1a35, #1c1f3a) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .hero_subtitle,
+:root[data-theme="dark"] .about_text {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .hero_badge {
+  background: var(--brand-soft) !important;
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .feature_card,
+:root[data-theme="dark"] .service_item {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .feature_card:hover,
+:root[data-theme="dark"] .service_item:hover {
+  background: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .feature_card h3,
+:root[data-theme="dark"] .service_item h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .feature_card p,
+:root[data-theme="dark"] .service_item p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .faq_item {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .faq_item h3 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .faq_item p {
+  color: var(--text-secondary) !important;
+}
+
+/* --- Products — kard va pagination --- */
+:root[data-theme="dark"] .pro_card,
+:root[data-theme="dark"] .card_info {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .card_img_box {
+  background-color: var(--bg-surface-alt) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .card_title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .card_price {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .page_btn {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .page_btn:hover {
+  background-color: var(--bg-surface-alt) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--text-faint) !important;
+}
+
+:root[data-theme="dark"] .page_btn.active {
+  background-color: var(--brand) !important;
+  color: #ffffff !important;
+  border-color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .favorite_btn {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .favorite_btn:hover {
+  border-color: #f87171 !important;
+  background: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .favorite_btn.active {
+  background: var(--danger-soft) !important;
+  border-color: var(--danger) !important;
+}
+
+/* --- Detail sahifasi (Batafsil) --- */
+:root[data-theme="dark"] .product_detail {
+  background: transparent !important;
+}
+
+:root[data-theme="dark"] .category {
+  background: var(--brand-soft) !important;
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .description {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .price {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .stock {
+  color: var(--success) !important;
+}
+
+:root[data-theme="dark"] .extra-info {
+  background: var(--bg-surface-alt) !important;
+  border: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .extra-info p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .favorite_detail_btn {
+  background: var(--bg-surface) !important;
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+}
+
+:root[data-theme="dark"] .favorite_detail_btn:hover,
+:root[data-theme="dark"] .favorite_detail_btn.active {
+  background: var(--danger-soft) !important;
+}
+
+/* --- Savat (Cart) sahifasi --- */
+:root[data-theme="dark"] .cart_item {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .cart_item_img {
+  background: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .cart_item_title,
+:root[data-theme="dark"] .cart_item_total {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .cart_item_price {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .cart_remove_btn {
+  background: var(--danger-soft) !important;
+  color: var(--danger) !important;
+}
+
+:root[data-theme="dark"] .cart_remove_btn:hover {
+  background: var(--danger) !important;
+  color: #ffffff !important;
+}
+
+:root[data-theme="dark"] .cart_summary {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .cart_summary h3 {
+  color: var(--text-primary) !important;
+}
+
+/* --- To'lov formasi (checkout) --- */
+:root[data-theme="dark"] .checkout_form {
+  background: transparent !important;
+}
+
+:root[data-theme="dark"] .form_label {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .form_input,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .form_input::placeholder {
+  color: var(--text-faint) !important;
+}
+
+:root[data-theme="dark"] .form_input:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+:root[data-theme="dark"] .card_details_box {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* --- hr chizig'i --- */
+:root[data-theme="dark"] hr {
+  border-top-color: var(--border-color) !important;
+}
+
+/* --- Show All tugmasi --- */
+:root[data-theme="dark"] .show_hide {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  background: var(--bg-surface) !important;
+}
+
+:root[data-theme="dark"] .show_hide:hover {
+  background: var(--bg-surface-alt) !important;
+}
+
+/* --- Auth (Login / Register) --- */
+:root[data-theme="dark"] .auth_container {
+  background-color: var(--bg-page) !important;
+}
+
+:root[data-theme="dark"] .auth_form {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .auth_form h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .auth_form p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .auth_switch {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .auth_switch a {
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .auth_switch a:hover {
+  color: var(--brand-hover) !important;
+}
+
+/* --- Profil sahifasi --- */
+:root[data-theme="dark"] .profile_card_main {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .profile_avatar {
+  background: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .profile_header h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .profile_email {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .profile_info_body {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .info_row {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .section_tab {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .section_tab:hover {
+  background: var(--bg-surface) !important;
+  border-color: var(--text-faint) !important;
+}
+
+:root[data-theme="dark"] .section_tab h3 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .empty_sub_text {
+  color: var(--text-muted) !important;
+}
+
+:root[data-theme="dark"] .profile_logout_btn {
+  background: var(--danger-soft) !important;
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+}
+
+:root[data-theme="dark"] .profile_logout_btn:hover {
+  background: var(--danger) !important;
+  color: #ffffff !important;
+}
+
+/* --- Profil tablar: Buyurtmalar / Sevimlilar --- */
+:root[data-theme="dark"] .order_card,
+:root[data-theme="dark"] .favorite_card {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .order_date,
+:root[data-theme="dark"] .favorite_card_price {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .order_status {
+  background: var(--brand-soft) !important;
+  color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .order_item_thumb,
+:root[data-theme="dark"] .favorite_card_img {
+  background-color: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .order_remove_btn {
+  background: var(--danger-soft) !important;
+  color: var(--danger) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .order_remove_btn:hover {
+  background: var(--danger) !important;
+  color: #ffffff !important;
+}
+
+/* --- Sozlamalar bo'limi --- */
+:root[data-theme="dark"] .settings_form {
+  background: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .settings_form_title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .settings_form .form_label {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .settings_form .form_input {
+  background-color: var(--bg-input) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .settings_save_btn {
+  background: var(--brand) !important;
+  color: #ffffff !important;
+}
+
+:root[data-theme="dark"] .settings_save_btn:hover {
+  background: var(--brand-hover) !important;
+}
+
+:root[data-theme="dark"] .theme_switch_row {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .theme_switch_icon {
+  background: var(--bg-surface-alt) !important;
+}
+
+:root[data-theme="dark"] .theme_toggle {
+  background: #475569;
+}
+
+/* --- Toast xabarnomalar --- */
+:root[data-theme="dark"] .toast_item {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .toast_message {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .toast_close {
+  color: var(--text-muted) !important;
+}
+
+:root[data-theme="dark"] .toast_close:hover {
+  color: var(--text-primary) !important;
+}
+/* ── Admin Panel dark mode ───────────────────────── */
+:root[data-theme="dark"] .admin_select {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .admin_select option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .admin_action_btn.edit {
+  border-color: rgba(74,222,128,0.25) !important;
+}
+
+:root[data-theme="dark"] .admin_action_btn.delete {
+  border-color: rgba(248,113,113,0.25) !important;
+}
