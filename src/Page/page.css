@@ -290,3 +290,62 @@ hr {
   background: #4f00cc;
   transform: translateY(-2px);
 }
+
+/* ===================== MOBIL TUZATISHLAR ===================== */
+@media (max-width: 640px) {
+  .hero_section {
+    padding: 28px 20px;
+  }
+
+  .not_found_code {
+    font-size: 80px;
+  }
+
+  .not_found_title {
+    font-size: 22px;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cart_items_list {
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  /* Savatdagi har bir mahsulot — tor ekranda vertikal joylashadi */
+  .cart_item {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .cart_item_img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cart_item_info {
+    flex: 1 1 calc(100% - 90px);
+    min-width: 150px;
+  }
+
+  .cart_item_total {
+    width: 100%;
+    text-align: left;
+    order: 3;
+  }
+
+  .cart_remove_btn {
+    order: 4;
+  }
+
+  .cart_summary {
+    padding: 20px;
+    min-width: 0;
+  }
+
+  .form_actions {
+    flex-wrap: wrap;
+  }
+}

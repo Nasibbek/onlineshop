@@ -388,3 +388,153 @@
   color: #ffffff;
   border-color: #6200ff;
 }
+
+/* ===================== MOBIL NAVIGATSIYA (HAMBURGER MENYU) ===================== */
+
+/* Desktopda yashirin — faqat mobil ekranlarda ko'rinadi */
+.nav_top_row { display: none; }
+.hamburger_btn { display: none; }
+.menu_overlay { display: none; }
+
+@media (max-width: 900px) {
+  .nav_top_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .nav_brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--brand, #6200ff);
+    text-decoration: none;
+  }
+
+  .hamburger_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .hamburger_btn span {
+    display: block;
+    height: 2px;
+    width: 24px;
+    background: var(--text-primary, #1e293b);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .hamburger_btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger_btn.open span:nth-child(2) { opacity: 0; }
+  .hamburger_btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menyu — yopiq holatda butunlay yashirin, ochilganda tepadan pastga tushadigan panel */
+  .menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: auto;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: var(--bg-surface, #ffffff);
+    padding: 12px 16px 24px;
+    gap: 6px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+  }
+
+  .menu.menu_open {
+    display: flex;
+    animation: mobile_menu_slide_in 0.22s ease-out;
+  }
+
+  @keyframes mobile_menu_slide_in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .menu_item {
+    width: 100%;
+  }
+
+  .menu_link,
+  .nav_auth_btn {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .cart_link {
+    justify-content: space-between !important;
+  }
+
+  /* Fonni qorong'ulashtiruvchi overlay — tashqarisini bosib yopish uchun */
+  .menu_overlay {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+  }
+}
+
+/* ===================== UMUMIY MOBIL TUZATISHLAR ===================== */
+@media (max-width: 600px) {
+  .footer_section {
+    padding: 40px 0 16px 0;
+    margin-top: 60px;
+  }
+
+  .footer_container {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .modal_box {
+    padding: 24px 20px;
+    max-width: 92%;
+  }
+
+  .modal_actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer_container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MOBIL: asosiy konteyner joylari ===== */
+@media (max-width: 480px) {
+  .container1 {
+    padding: 14px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+}

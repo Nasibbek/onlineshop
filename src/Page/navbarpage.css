@@ -155,3 +155,27 @@
   color: #475569;
   line-height: 1.5;
 }
+/* ===================== MOBIL TUZATISHLAR ===================== */
+@media (max-width: 480px) {
+  .hero_section {
+    padding: 24px 0;
+    gap: 24px;
+  }
+
+  .hero_content,
+  .hero_image_box {
+    min-width: 100%;
+  }
+
+  .hero_title {
+    font-size: 28px;
+  }
+
+  .hero_subtitle {
+    font-size: 15px;
+  }
+
+  .feature_card {
+    padding: 20px;
+  }
+}

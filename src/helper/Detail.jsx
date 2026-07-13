@@ -181,7 +181,7 @@ function Detail() {
             <p><b>Status:</b> {data.availabilityStatus}</p>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px' }}>
+          <div className="detail_actions_row">
             <button className="buy-btn" onClick={() => addToCart(data)}>
               Savatga qo'shish
             </button>

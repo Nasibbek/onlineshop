@@ -82,3 +82,16 @@
     transform: translateX(30px);
   }
 }
+@media (max-width: 480px) {
+  .toast_container {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+  }
+
+  .toast_item {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}

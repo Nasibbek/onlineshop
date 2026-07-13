@@ -193,3 +193,22 @@
     transition: none !important;
   }
 }
+
+/* ===================== MOBIL QURILMALAR UCHUN UMUMIY TUZATISHLAR ===================== */
+
+/* Har qanday elementdan chiqib ketadigan gorizontal scrollning oldini olish —
+   ba'zi bloklar "ko'rinmay qolishi"ning asosiy sababi shu edi */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Rasm/kontent tashqariga chiqib ketmasin */
+* {
+  min-width: 0;
+}
