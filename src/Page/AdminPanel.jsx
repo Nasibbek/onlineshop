@@ -403,15 +403,25 @@ function AdminPanel() {
           <span
             className={section === 'products' ? 'admin_nav_item active' : 'admin_nav_item'}
             onClick={() => setSection('products')}
-          >📦 Mahsulotlar</span>
+          >
+            <span className="nav_icon">📦</span>
+            <span className="nav_label">Mahsulotlar</span>
+          </span>
           <span
             className={section === 'orders' ? 'admin_nav_item active' : 'admin_nav_item'}
             onClick={() => setSection('orders')}
-          >🧾 Buyurtmalar {orders.length > 0 && <span className="admin_nav_badge">{orders.length}</span>}</span>
+          >
+            <span className="nav_icon">🧾</span>
+            <span className="nav_label">Buyurtmalar</span>
+            {orders.length > 0 && <span className="admin_nav_badge">{orders.length}</span>}
+          </span>
           <span
             className={section === 'stats' ? 'admin_nav_item active' : 'admin_nav_item'}
             onClick={() => setSection('stats')}
-          >📈 Statistika</span>
+          >
+            <span className="nav_icon">📈</span>
+            <span className="nav_label">Statistika</span>
+          </span>
         </nav>
         <nav className="admin_bosh">
           <button
@@ -420,11 +430,13 @@ function AdminPanel() {
           className="auth_btn"
           style={{ background: 'transparent', border: '1px solid var(--border-color)', color: 'var(--text-secondary)', marginTop: '8px' }}
         >
-          ← Bosh sahifaga qaytish
+          <span className="nav_icon">←</span>
+          <span className="nav_label">Bosh sahifaga qaytish</span>
         </button>
         </nav>
         <button className="admin_logout_btn" onClick={handleLogout}>
-          🚪 Chiqish
+          <span className="nav_icon">🚪</span>
+          <span className="nav_label">Chiqish</span>
         </button>
       </aside>
 
