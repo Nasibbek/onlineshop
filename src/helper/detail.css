@@ -176,7 +176,7 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  background: #f8fafc;
+  background: var(--bg-surface-alt, #f8fafc);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,8 +197,8 @@
   max-width: 620px;
   padding: 14px;
   border-radius: 18px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-surface-alt, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
 }
 
 .grid_thumb_box {
@@ -207,9 +207,10 @@
   height: 150px;
   border-radius: 12px;
   overflow: hidden;
-  background: #fff;
-  border: 2px solid #e2e8f0;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  cursor: zoom-in;
+  background: var(--bg-surface, #fff);
+  border: 2px solid var(--border-color, #e2e8f0);
+  transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
 }
 
 .grid_thumb_box:hover {
