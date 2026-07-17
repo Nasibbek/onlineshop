@@ -185,7 +185,7 @@
 .main_img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: opacity 0.2s ease;
 }
 
@@ -207,7 +207,6 @@
   height: 150px;
   border-radius: 12px;
   overflow: hidden;
-  cursor: zoom-in;
   background: #fff;
   border: 2px solid #e2e8f0;
   transition: border-color 0.2s ease, transform 0.15s ease;
@@ -218,13 +217,12 @@
   transform: translateY(-2px);
 }
 
-.grid_thumb {
+.images_grid .grid_thumb_box .grid_thumb {
   width: 100%;
   height: 100%;
   object-fit: contain;
   padding: 6px;
 }
-
 .grid_thumb_box .zoom_hint {
   position: absolute;
   bottom: 4px;

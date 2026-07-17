@@ -170,7 +170,6 @@ function Detail() {
                   onClick={() => setZoomedImg(img)}
                 >
                   <img src={img} alt={`${data.title} ${i + 1}`} className="grid_thumb" />
-                  <span className="zoom_hint">🔍</span>
                 </div>
               ))}
             </div>
