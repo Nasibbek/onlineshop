@@ -14,8 +14,8 @@
 
 .hero_badge {
   display: inline-block;
-  background: #f3e8ff;
-  color: #6200ff;
+  background: var(--brand-soft);
+  color: var(--brand);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 13px;
@@ -26,14 +26,14 @@
 .hero_title {
   font-size: 42px;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-primary);
   line-height: 1.2;
   margin: 0 0 20px 0;
 }
 
 .hero_subtitle {
   font-size: 18px;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0 0 30px 0;
 }
@@ -53,13 +53,13 @@
 .hero_image {
   width: 100%;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  box-shadow: 0 20px 40px var(--shadow-color);
 }
 
 /* About va Features grid */
 .about_text {
   font-size: 17px;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.7;
   max-width: 800px;
   margin-bottom: 40px;
@@ -73,16 +73,16 @@
 }
 
 .feature_card {
-  background: #ffffff;
+  background: var(--bg-surface);
   padding: 30px;
   border-radius: 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   transition: 0.3s;
 }
 
 .feature_card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+  box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 .feature_icon {
@@ -93,43 +93,17 @@
 .feature_card h3 {
   margin: 0 0 10px 0;
   font-size: 18px;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .feature_card p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.5;
 }
 
-/* Services */
-.services_list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.service_item {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-}
-
-.service_item h2 {
-  margin: 0 0 10px 0;
-  font-size: 20px;
-  color: #0f172a;
-}
-
-.service_item p {
-  margin: 0;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* ===== SERVICES (yangi ikonli kartalar) ===== */
+/* ===== SERVICES (ikonli kartalar) ===== */
 .services_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -139,8 +113,8 @@
 
 .service_card {
   position: relative;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
   border-radius: 18px;
   padding: 30px 26px;
   overflow: hidden;
@@ -149,8 +123,8 @@
 
 .service_card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(98, 0, 255, 0.08);
-  border-color: #d8c8ff;
+  box-shadow: 0 16px 32px var(--shadow-color);
+  border-color: var(--brand);
 }
 
 .service_number {
@@ -159,7 +133,7 @@
   right: 20px;
   font-size: 34px;
   font-weight: 800;
-  color: #f1e8ff;
+  color: var(--brand-soft);
   line-height: 1;
 }
 
@@ -177,12 +151,12 @@
 .service_card h2 {
   margin: 0 0 10px 0;
   font-size: 18px;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .service_card p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 14.5px;
   line-height: 1.6;
 }
@@ -196,16 +170,16 @@
 }
 
 .faq_item {
-  background: #f8fafc;
+  background: var(--bg-surface-alt);
   border-radius: 14px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .faq_item.open {
-  border-color: #d8c8ff;
-  box-shadow: 0 8px 20px rgba(98, 0, 255, 0.06);
+  border-color: var(--brand);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .faq_question {
@@ -220,7 +194,7 @@
   padding: 18px 20px;
   font-size: 16px;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text-primary);
   text-align: left;
   font-family: inherit;
 }
@@ -228,7 +202,7 @@
 .faq_chevron {
   flex-shrink: 0;
   font-size: 20px;
-  color: #6200ff;
+  color: var(--brand);
   transition: transform 0.3s ease;
 }
 
@@ -252,7 +226,7 @@
 .faq_answer_inner p {
   margin: 0;
   padding: 0 20px 18px 20px;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -260,7 +234,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  background: linear-gradient(135deg, #6200ff 0%, #9333ea 100%);
+  background: linear-gradient(135deg, var(--brand) 0%, #9333ea 100%);
   border-radius: 18px;
   padding: 26px 28px;
   margin-top: 28px;
@@ -284,6 +258,152 @@
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
 }
+
+/* ===== SECTION TITLE (umumiy) ===== */
+.section_title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 60px 0 28px 0;
+  text-align: center;
+}
+
+/* ===== TEZKOR KATEGORIYALAR ===== */
+.quick_categories {
+  margin-top: 20px;
+}
+
+.quick_cat_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.quick_cat_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 22px 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.quick_cat_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px var(--shadow-color);
+  border-color: var(--brand);
+}
+
+.quick_cat_label {
+  color: var(--text-primary);
+}
+
+.quick_cat_icon {
+  font-size: 32px;
+  transition: transform 0.25s ease;
+}
+
+.quick_cat_card:hover .quick_cat_icon {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+/* ===== STATISTIKA (animatsiyali sanoq) ===== */
+/* Doim gradient fonda — matn har ikkala rejimda ham oq bo'lib qoladi,
+   shuning uchun global "dark mode" matn-rangi qoidalaridan mustasno qilamiz */
+.stats_section {
+  margin-top: 40px;
+  background: linear-gradient(135deg, var(--brand) 0%, #9333ea 100%);
+  border-radius: 24px;
+  padding: 44px 24px;
+}
+
+.stats_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.stat_box {
+  color: #fff !important;
+}
+
+.counter_value {
+  display: block;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: #fff !important;
+}
+
+.stat_box_label {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+}
+
+/* ===== MIJOZLAR FIKRI (testimonials) ===== */
+.testimonials_section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.testimonial_card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonial_text {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 24px 0;
+}
+
+.testimonial_author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonial_avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial_name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: left;
+}
+
+.testimonial_role {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  text-align: left;
+}
+
 /* ===================== MOBIL TUZATISHLAR ===================== */
 @media (max-width: 480px) {
   .hero_section {
@@ -307,148 +427,7 @@
   .feature_card {
     padding: 20px;
   }
-}
 
-/* ===== SECTION TITLE (umumiy) ===== */
-.section_title {
-  font-size: 26px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 60px 0 28px 0;
-  text-align: center;
-}
-
-/* ===== TEZKOR KATEGORIYALAR ===== */
-.quick_categories {
-  margin-top: 20px;
-}
-
-.quick_cat_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
-}
-
-.quick_cat_card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 22px 12px;
-  text-decoration: none;
-  color: #0f172a;
-  font-weight: 600;
-  font-size: 14px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.quick_cat_card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(98, 0, 255, 0.1);
-  border-color: #6200ff;
-}
-
-.quick_cat_icon {
-  font-size: 32px;
-  transition: transform 0.25s ease;
-}
-
-.quick_cat_card:hover .quick_cat_icon {
-  transform: scale(1.15) rotate(-4deg);
-}
-
-/* ===== STATISTIKA (animatsiyali sanoq) ===== */
-.stats_section {
-  margin-top: 40px;
-  background: linear-gradient(135deg, #6200ff 0%, #9333ea 100%);
-  border-radius: 24px;
-  padding: 44px 24px;
-}
-
-.stats_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 24px;
-  text-align: center;
-}
-
-.stat_box {
-  color: #fff;
-}
-
-.counter_value {
-  display: block;
-  font-size: 38px;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat_box_label {
-  margin: 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 500;
-}
-
-/* ===== MIJOZLAR FIKRI (testimonials) ===== */
-.testimonials_section {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.testimonial_card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonial_text {
-  font-size: 18px;
-  color: #334155;
-  line-height: 1.7;
-  font-style: italic;
-  margin: 0 0 24px 0;
-}
-
-.testimonial_author {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.testimonial_avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.testimonial_name {
-  margin: 0;
-  font-weight: 700;
-  color: #0f172a;
-  font-size: 14px;
-  text-align: left;
-}
-
-.testimonial_role {
-  margin: 0;
-  color: #94a3b8;
-  font-size: 12.5px;
-  text-align: left;
-}
-
-/* ===== MOBIL TUZATISHLAR (yangi bo'limlar) ===== */
-@media (max-width: 480px) {
   .section_title {
     font-size: 21px;
     margin: 40px 0 20px 0;
