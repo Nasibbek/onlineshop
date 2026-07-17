@@ -20,6 +20,63 @@ function StarRatingInput({ value, onChange }) {
   )
 }
 
+function ImageLightbox({ images, title, activeImg, setActiveImg, onClose }) {
+  const goPrev = (e) => {
+    e.stopPropagation()
+    setActiveImg(prev => (prev - 1 + images.length) % images.length)
+  }
+  const goNext = (e) => {
+    e.stopPropagation()
+    setActiveImg(prev => (prev + 1) % images.length)
+  }
+
+  React.useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') setActiveImg(prev => (prev - 1 + images.length) % images.length)
+      if (e.key === 'ArrowRight') setActiveImg(prev => (prev + 1) % images.length)
+    }
+    window.addEventListener('keydown', handleKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
+  }, [images.length, onClose, setActiveImg])
+
+  return (
+    <div className="lightbox_overlay" onClick={onClose}>
+      <button className="lightbox_close" onClick={onClose}>✕</button>
+
+      <div className="lightbox_content" onClick={(e) => e.stopPropagation()}>
+        <div className="lightbox_main_box">
+          {images.length > 1 && (
+            <button className="lightbox_nav lightbox_prev" onClick={goPrev}>‹</button>
+          )}
+          <img src={images[activeImg]} alt={`${title} ${activeImg + 1}`} className="lightbox_img" />
+          {images.length > 1 && (
+            <button className="lightbox_nav lightbox_next" onClick={goNext}>›</button>
+          )}
+        </div>
+
+        {images.length > 1 && (
+          <div className="lightbox_carousel">
+            {images.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt={`${title} ${i + 1}`}
+                className={activeImg === i ? 'lightbox_thumb active_thumb' : 'lightbox_thumb'}
+                onClick={(e) => { e.stopPropagation(); setActiveImg(i) }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function ReviewsSection({ productId }) {
   const { getReviews, addReview, isLoggedIn, user } = useAppContext()
   const reviews = getReviews(productId)
@@ -89,6 +146,7 @@ function Detail() {
   const { addToCart } = useOutletContext()
   const { toggleFavorite, isFavorite, adminProducts } = useAppContext()
   const [activeImg, setActiveImg] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   // Avval admin qo'shgan/tahrirlagan mahsulotlar ichidan qidiramiz —
   // topilsa API'ga umuman murojaat qilmaymiz (custom mahsulotlar DummyJSON'da yo'q)
@@ -136,8 +194,12 @@ function Detail() {
       <div className="product_detail">
         {/* Rasm slider */}
         <div className="product-image">
-          <div className="main_img_box">
+          <div
+            className={images.length > 1 ? 'main_img_box zoomable' : 'main_img_box'}
+            onClick={() => images.length > 1 && setLightboxOpen(true)}
+          >
             <img src={images[activeImg]} alt={data.title} className="main_img" />
+            {images.length > 1 && <span className="zoom_hint">🔍</span>}
           </div>
           {images.length > 1 && (
             <div className="thumbnails">
@@ -151,6 +213,16 @@ function Detail() {
                 />
               ))}
             </div>
+          )}
+
+          {lightboxOpen && images.length > 1 && (
+            <ImageLightbox
+              images={images}
+              title={data.title}
+              activeImg={activeImg}
+              setActiveImg={setActiveImg}
+              onClose={() => setLightboxOpen(false)}
+            />
           )}
         </div>
 
