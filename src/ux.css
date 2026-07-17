@@ -212,3 +212,28 @@ img, svg, video {
 * {
   min-width: 0;
 }
+
+/* ===================== SCROLL-REVEAL VA SANOQ ANIMATSIYASI ===================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal_visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.counter_value {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

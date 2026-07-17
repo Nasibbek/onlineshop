@@ -3,7 +3,7 @@ import Container from '../components/Containerk'
 import Card from '../components/Card'
 import useFetch from '../hooks/useFetch'
 import './product.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useSearchParams } from 'react-router-dom'
 import { useAppContext } from '../context/Appcontext'
 
 function SkeletonCard() {
@@ -25,7 +25,8 @@ function Product() {
 
   const [currentPage, setCurrentPage] = useState(1)
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [searchParams] = useSearchParams()
+  const [selectedCategory, setSelectedCategory] = useState(() => searchParams.get('category') || 'all')
   const [sortOrder, setSortOrder] = useState('default')
   const [minPrice, setMinPrice] = useState('')
   const [maxPrice, setMaxPrice] = useState('')

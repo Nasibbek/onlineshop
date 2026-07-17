@@ -129,31 +129,160 @@
   line-height: 1.6;
 }
 
-/* Help / FAQ */
+/* ===== SERVICES (yangi ikonli kartalar) ===== */
+.services_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service_card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 30px 26px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(98, 0, 255, 0.08);
+  border-color: #d8c8ff;
+}
+
+.service_number {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 34px;
+  font-weight: 800;
+  color: #f1e8ff;
+  line-height: 1;
+}
+
+.service_card_icon {
+  font-size: 34px;
+  margin-bottom: 14px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.service_card:hover .service_card_icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.service_card h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.service_card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Help / FAQ — akkordeon (ochilib-yopiladigan) */
 .faq_container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-width: 700px;
+  gap: 14px;
+  max-width: 750px;
 }
 
 .faq_item {
   background: #f8fafc;
-  padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.faq_item h3 {
-  margin: 0 0 8px 0;
+.faq_item.open {
+  border-color: #d8c8ff;
+  box-shadow: 0 8px 20px rgba(98, 0, 255, 0.06);
+}
+
+.faq_question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 18px 20px;
   font-size: 16px;
+  font-weight: 600;
   color: #0f172a;
+  text-align: left;
+  font-family: inherit;
 }
 
-.faq_item p {
+.faq_chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: #6200ff;
+  transition: transform 0.3s ease;
+}
+
+.faq_item.open .faq_chevron {
+  transform: rotate(180deg);
+}
+
+/* CSS grid-template-rows 0fr → 1fr — hodisa balandligini bilmasdan
+   yumshoq ochilish/yopilish animatsiyasi (JS bilan hisoblashsiz) */
+.faq_answer_wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq_answer_inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq_answer_inner p {
   margin: 0;
+  padding: 0 20px 18px 20px;
   color: #475569;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.faq_contact_box {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #6200ff 0%, #9333ea 100%);
+  border-radius: 18px;
+  padding: 26px 28px;
+  margin-top: 28px;
+  max-width: 750px;
+}
+
+.faq_contact_icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.faq_contact_title {
+  margin: 0 0 6px 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.faq_contact_text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
 }
 /* ===================== MOBIL TUZATISHLAR ===================== */
 @media (max-width: 480px) {
@@ -177,5 +306,203 @@
 
   .feature_card {
     padding: 20px;
+  }
+}
+
+/* ===== SECTION TITLE (umumiy) ===== */
+.section_title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 60px 0 28px 0;
+  text-align: center;
+}
+
+/* ===== TEZKOR KATEGORIYALAR ===== */
+.quick_categories {
+  margin-top: 20px;
+}
+
+.quick_cat_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.quick_cat_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px 12px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.quick_cat_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(98, 0, 255, 0.1);
+  border-color: #6200ff;
+}
+
+.quick_cat_icon {
+  font-size: 32px;
+  transition: transform 0.25s ease;
+}
+
+.quick_cat_card:hover .quick_cat_icon {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+/* ===== STATISTIKA (animatsiyali sanoq) ===== */
+.stats_section {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #6200ff 0%, #9333ea 100%);
+  border-radius: 24px;
+  padding: 44px 24px;
+}
+
+.stats_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.stat_box {
+  color: #fff;
+}
+
+.counter_value {
+  display: block;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat_box_label {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+/* ===== MIJOZLAR FIKRI (testimonials) ===== */
+.testimonials_section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.testimonial_card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonial_text {
+  font-size: 18px;
+  color: #334155;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 24px 0;
+}
+
+.testimonial_author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonial_avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial_name {
+  margin: 0;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 14px;
+  text-align: left;
+}
+
+.testimonial_role {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12.5px;
+  text-align: left;
+}
+
+/* ===== MOBIL TUZATISHLAR (yangi bo'limlar) ===== */
+@media (max-width: 480px) {
+  .section_title {
+    font-size: 21px;
+    margin: 40px 0 20px 0;
+  }
+
+  .stats_section {
+    padding: 28px 16px;
+  }
+
+  .counter_value {
+    font-size: 28px;
+  }
+
+  .testimonial_card {
+    padding: 26px 20px;
+  }
+
+  .testimonial_text {
+    font-size: 15px;
+  }
+
+  .quick_cat_grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .quick_cat_card {
+    padding: 14px 8px;
+  }
+
+  .quick_cat_icon {
+    font-size: 24px;
+  }
+
+  .quick_cat_label {
+    font-size: 12px;
+  }
+
+  .services_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service_card {
+    padding: 22px 20px;
+  }
+
+  .faq_contact_box {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px 20px;
+  }
+
+  .faq_question {
+    padding: 14px 16px;
+    font-size: 14.5px;
   }
 }
