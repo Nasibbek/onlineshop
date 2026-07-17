@@ -20,21 +20,10 @@ function StarRatingInput({ value, onChange }) {
   )
 }
 
-function ImageLightbox({ images, title, activeImg, setActiveImg, onClose }) {
-  const goPrev = (e) => {
-    e.stopPropagation()
-    setActiveImg(prev => (prev - 1 + images.length) % images.length)
-  }
-  const goNext = (e) => {
-    e.stopPropagation()
-    setActiveImg(prev => (prev + 1) % images.length)
-  }
-
+function ImageLightbox({ image, title, onClose }) {
   React.useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowLeft') setActiveImg(prev => (prev - 1 + images.length) % images.length)
-      if (e.key === 'ArrowRight') setActiveImg(prev => (prev + 1) % images.length)
     }
     window.addEventListener('keydown', handleKey)
     document.body.style.overflow = 'hidden'
@@ -42,36 +31,15 @@ function ImageLightbox({ images, title, activeImg, setActiveImg, onClose }) {
       window.removeEventListener('keydown', handleKey)
       document.body.style.overflow = ''
     }
-  }, [images.length, onClose, setActiveImg])
+  }, [onClose])
 
   return (
     <div className="lightbox_overlay" onClick={onClose}>
       <button className="lightbox_close" onClick={onClose}>✕</button>
-
       <div className="lightbox_content" onClick={(e) => e.stopPropagation()}>
         <div className="lightbox_main_box">
-          {images.length > 1 && (
-            <button className="lightbox_nav lightbox_prev" onClick={goPrev}>‹</button>
-          )}
-          <img src={images[activeImg]} alt={`${title} ${activeImg + 1}`} className="lightbox_img" />
-          {images.length > 1 && (
-            <button className="lightbox_nav lightbox_next" onClick={goNext}>›</button>
-          )}
+          <img src={image} alt={title} className="lightbox_img" />
         </div>
-
-        {images.length > 1 && (
-          <div className="lightbox_carousel">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`${title} ${i + 1}`}
-                className={activeImg === i ? 'lightbox_thumb active_thumb' : 'lightbox_thumb'}
-                onClick={(e) => { e.stopPropagation(); setActiveImg(i) }}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )
@@ -145,8 +113,7 @@ function Detail() {
   const { id } = useParams()
   const { addToCart } = useOutletContext()
   const { toggleFavorite, isFavorite, adminProducts } = useAppContext()
-  const [activeImg, setActiveImg] = useState(0)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [zoomedImg, setZoomedImg] = useState(null)
 
   // Avval admin qo'shgan/tahrirlagan mahsulotlar ichidan qidiramiz —
   // topilsa API'ga umuman murojaat qilmaymiz (custom mahsulotlar DummyJSON'da yo'q)
@@ -192,36 +159,32 @@ function Detail() {
   return (
     <Container>
       <div className="product_detail">
-        {/* Rasm slider */}
+        {/* Rasm(lar) */}
         <div className="product-image">
-          <div
-            className={images.length > 1 ? 'main_img_box zoomable' : 'main_img_box'}
-            onClick={() => images.length > 1 && setLightboxOpen(true)}
-          >
-            <img src={images[activeImg]} alt={data.title} className="main_img" />
-            {images.length > 1 && <span className="zoom_hint">🔍</span>}
-          </div>
-          {images.length > 1 && (
-            <div className="thumbnails">
+          {images.length > 1 ? (
+            <div className="images_grid">
               {images.map((img, i) => (
-                <img
+                <div
                   key={i}
-                  src={img}
-                  alt={`${data.title} ${i + 1}`}
-                  className={activeImg === i ? 'thumb active_thumb' : 'thumb'}
-                  onClick={() => setActiveImg(i)}
-                />
+                  className="grid_thumb_box"
+                  onClick={() => setZoomedImg(img)}
+                >
+                  <img src={img} alt={`${data.title} ${i + 1}`} className="grid_thumb" />
+                  <span className="zoom_hint">🔍</span>
+                </div>
               ))}
+            </div>
+          ) : (
+            <div className="main_img_box">
+              <img src={images[0]} alt={data.title} className="main_img" />
             </div>
           )}
 
-          {lightboxOpen && images.length > 1 && (
+          {zoomedImg && (
             <ImageLightbox
-              images={images}
+              image={zoomedImg}
               title={data.title}
-              activeImg={activeImg}
-              setActiveImg={setActiveImg}
-              onClose={() => setLightboxOpen(false)}
+              onClose={() => setZoomedImg(null)}
             />
           )}
         </div>
