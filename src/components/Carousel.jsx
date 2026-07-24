@@ -4,11 +4,15 @@ import './carousel.css'
 // Universal karusel — slaydlar sifatida istalgan React elementini qabul qiladi.
 // Avtomatik aylanish, nuqtali navigatsiya, chap/o'ng strelkalar va
 // telefonda barmoq bilan surish (swipe) qo'llab-quvvatlanadi.
-function Carousel({ slides, autoPlay = true, interval = 5000, showArrows = true, showDots = true }) {
-  const [current, setCurrent] = useState(0)
+function Carousel({ slides, autoPlay = true, interval = 5000, showArrows = true, showDots = true, startIndex = 0 }) {
+  const [current, setCurrent] = useState(startIndex)
   const [isPaused, setIsPaused] = useState(false)
   const touchStartX = useRef(null)
   const total = slides.length
+
+  useEffect(() => {
+    setCurrent(startIndex)
+  }, [startIndex])
 
   const goTo = useCallback((index) => {
     setCurrent(((index % total) + total) % total)

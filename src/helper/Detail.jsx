@@ -20,31 +20,6 @@ function StarRatingInput({ value, onChange }) {
   )
 }
 
-function ImageLightbox({ image, title, onClose }) {
-  React.useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      window.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  return (
-    <div className="lightbox_overlay" onClick={onClose}>
-      <button className="lightbox_close" onClick={onClose}>✕</button>
-      <div className="lightbox_content" onClick={(e) => e.stopPropagation()}>
-        <div className="lightbox_main_box">
-          <img src={image} alt={title} className="lightbox_img" />
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function ReviewsSection({ productId }) {
   const { getReviews, addReview, isLoggedIn, user } = useAppContext()
   const reviews = getReviews(productId)
@@ -113,7 +88,7 @@ function Detail() {
   const { id } = useParams()
   const { addToCart } = useOutletContext()
   const { toggleFavorite, isFavorite, adminProducts } = useAppContext()
-  const [zoomedImg, setZoomedImg] = useState(null)
+  const [activeImg, setActiveImg] = useState(0)
 
   // Avval admin qo'shgan/tahrirlagan mahsulotlar ichidan qidiramiz —
   // topilsa API'ga umuman murojaat qilmaymiz (custom mahsulotlar DummyJSON'da yo'q)
@@ -159,33 +134,24 @@ function Detail() {
   return (
     <Container>
       <div className="product_detail">
-        {/* Rasm(lar) */}
+        {/* Rasm galereyasi — kichik rasmlar ustuni + katta rasm */}
         <div className="product-image">
-          {images.length > 1 ? (
-            <div className="images_grid">
+          {images.length > 1 && (
+            <div className="thumbnails">
               {images.map((img, i) => (
-                <div
+                <img
                   key={i}
-                  className="grid_thumb_box"
-                  onClick={() => setZoomedImg(img)}
-                >
-                  <img src={img} alt={`${data.title} ${i + 1}`} className="grid_thumb" />
-                </div>
+                  src={img}
+                  alt={`${data.title} ${i + 1}`}
+                  className={activeImg === i ? 'thumb active_thumb' : 'thumb'}
+                  onClick={() => setActiveImg(i)}
+                />
               ))}
             </div>
-          ) : (
-            <div className="main_img_box">
-              <img src={images[0]} alt={data.title} className="main_img" />
-            </div>
           )}
-
-          {zoomedImg && (
-            <ImageLightbox
-              image={zoomedImg}
-              title={data.title}
-              onClose={() => setZoomedImg(null)}
-            />
-          )}
+          <div className="main_img_box">
+            <img src={images[activeImg]} alt={data.title} className="main_img" />
+          </div>
         </div>
 
         <div className="product-info">
